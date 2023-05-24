@@ -10,19 +10,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TrelloMapperTest {
     private TrelloMapper trelloMapper;
-    private List<TrelloListDto> trelloListsDto;
-    private List<TrelloList> trelloLists;
-
     @BeforeEach
     void setUp() {
         trelloMapper = new TrelloMapper();
-        trelloListsDto = new ArrayList<>();
-        trelloLists = new ArrayList<>();
     }
 
     @Test
     void mapToBoards() {
         //Given
+        List<TrelloListDto> trelloListsDto = new ArrayList<>();
         List<TrelloBoardDto> trelloBoardDtoList = new ArrayList<>();
         TrelloBoardDto trelloBoardDto = new TrelloBoardDto("1L", "TestBoardDto", trelloListsDto);
         trelloBoardDtoList.add(trelloBoardDto);
@@ -40,6 +36,7 @@ class TrelloMapperTest {
     @Test
     void mapToBoardsDto() {
         //Given
+        List<TrelloList> trelloLists = new ArrayList<>();
         List<TrelloBoard> trelloBoardList = new ArrayList<>();
         TrelloBoard trelloBoard = new TrelloBoard("1L", "TestBoard", trelloLists);
         trelloBoardList.add(trelloBoard);
@@ -55,6 +52,7 @@ class TrelloMapperTest {
     @Test
     void mapToList() {
         //Given
+        List<TrelloListDto> trelloListsDto = new ArrayList<>();
         TrelloListDto trelloListDto = new TrelloListDto("1L", "trello list dto", false);
         trelloListsDto.add(trelloListDto);
 
@@ -69,6 +67,7 @@ class TrelloMapperTest {
     @Test
     void mapToListDto() {
         //Given
+        List<TrelloList> trelloLists = new ArrayList<>();
         TrelloList trelloList = new TrelloList("1L", "test List", false);
         trelloLists.add(trelloList);
 

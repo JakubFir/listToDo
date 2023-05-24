@@ -29,7 +29,5 @@ public class EmailScheduler {
                         .message("Currently in database you got: " + size + " " + pluralOrNot)
                         .build()
         );
-
     }
-
 }

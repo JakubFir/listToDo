@@ -53,21 +53,6 @@ public class TrelloClient {
         }
     }
 
-    private URI buildUrl(String trelloApiEndpoint,
-                         String trelloUsername,
-                         String trelloAppKey,
-                         String trelloToken) {
-
-        return UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/" + trelloUsername + "/boards")
-                .queryParam("key", trelloAppKey)
-                .queryParam("token", trelloToken)
-                .queryParam("fields", "name,id")
-                .queryParam("lists","all")
-                .build()
-                .encode()
-                .toUri();
-    }
-
     public CreatedTrelloCardDto createNewCard(TrelloCardDto trelloCardDto) {
         URI url = UriComponentsBuilder.fromHttpUrl(trelloConfig.getTrelloApiEndpoint() + "/cards")
                 .queryParam("key", trelloConfig.getTrelloAppKey())
