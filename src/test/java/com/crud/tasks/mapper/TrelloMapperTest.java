@@ -103,9 +103,9 @@ class TrelloMapperTest {
     void mapToCard() {
         //Given
         TrelloCardDto trelloCardDto = new TrelloCardDto(
-                "test card",
-                "test card",
-                "test card",
+                "test card dto",
+                "test card dto",
+                "test card dto",
                 "1L");
 
         //When
