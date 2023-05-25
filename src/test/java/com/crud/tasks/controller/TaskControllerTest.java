@@ -40,6 +40,7 @@ class TaskControllerTest {
     @Test
     void getTasks() throws Exception {
         //Given
+
         Task task = new Task(1L, "test", "Test");
         TaskDto taskDto = new TaskDto(1L, "test", "Test");
         List<Task> taskList = new ArrayList<>();
@@ -74,7 +75,10 @@ class TaskControllerTest {
                         .get("/v1/tasks/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(1)));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(1)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.title", Matchers.is("test")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content", Matchers.is("Test")));
+
     }
 
     @Test
@@ -94,7 +98,7 @@ class TaskControllerTest {
         // Given
         TaskDto taskDto = new TaskDto(1L, "updateTest", "Test");
         Task task = new Task(1L, "updateTest", "Test");
-        when(taskMapper.mapToTask(taskDto)).thenReturn(task);
+        when(taskMapper.mapToTask(any(TaskDto.class))).thenReturn(task);
         when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
 
         Gson gson = new Gson();
@@ -108,7 +112,7 @@ class TaskControllerTest {
                         .content(jsonContent))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(1)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.title", Matchers.is("test")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.title", Matchers.is("updateTest")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.content", Matchers.is("Test")));
     }
 
