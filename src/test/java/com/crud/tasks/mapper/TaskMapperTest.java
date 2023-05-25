@@ -4,6 +4,7 @@ import com.crud.tasks.domain.Task;
 import com.crud.tasks.domain.TaskDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TaskMapperTest {
 
-    private TaskMapper taskMapper;
-
-    @BeforeEach
-    void setUp() {
-        taskMapper = new TaskMapper();
-    }
+    private final TaskMapper taskMapper = new TaskMapper();
 
     @Test
     void mapToTask() {

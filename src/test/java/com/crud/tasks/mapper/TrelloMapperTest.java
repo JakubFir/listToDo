@@ -3,17 +3,14 @@ package com.crud.tasks.mapper;
 import com.crud.tasks.domain.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TrelloMapperTest {
-    private TrelloMapper trelloMapper;
-    @BeforeEach
-    void setUp() {
-        trelloMapper = new TrelloMapper();
-    }
+    private final TrelloMapper trelloMapper = new TrelloMapper();
 
     @Test
     void mapToBoards() {
