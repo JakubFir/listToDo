@@ -40,4 +40,18 @@ public class MailCreatorService {
 
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
+
+    public String buildDailyAvaiableTasksEmail(String message){
+        Context context = new Context();
+        context.setVariable("message", message);
+        context.setVariable("tasks_url", "https://jakubfir.github.io/");
+        context.setVariable("button", "Visit website");
+        context.setVariable("admin_name", adminConfig.getAdminName());
+        context.setVariable("goodbye_message","Till next time" );
+        context.setVariable("company_details", adminConfig.getCompanyDetails());
+        context.setVariable("show_button", true);
+        context.setVariable("is_friend", true);
+
+        return templateEngine.process("mail/daily-avaiable-tasks-mail",context);
+    }
 }
