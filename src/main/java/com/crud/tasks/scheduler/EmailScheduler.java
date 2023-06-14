@@ -17,7 +17,7 @@ public class EmailScheduler {
     private final AdminConfig adminConfig;
     private static final String SUBJECT = "Tasks: Once a day email";
 
-    @Scheduled(cron = "*/10 * * * * *")
+    @Scheduled(cron = "0 0 10 * * *")
     public void sendInformationEmail() {
         long size = taskRepository.count();
         String pluralOrNot = size == 1 ? "task" : "tasks";
