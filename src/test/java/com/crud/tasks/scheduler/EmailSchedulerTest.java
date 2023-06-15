@@ -44,7 +44,8 @@ class EmailSchedulerTest {
                         .mailTo(email)
                         .subject("Tasks: Once a day email")
                         .message("Currently in database you got: " + taskCount + " task")
-                        .build()
+                        .build(),
+                SimpleEmailService.DAILY_MAIL
         );
     }
 
@@ -65,7 +66,7 @@ class EmailSchedulerTest {
                         .mailTo(email)
                         .subject("Tasks: Once a day email")
                         .message("Currently in database you got: " + taskCount + " tasks")
-                        .build()
-        );
+                        .build(),
+                SimpleEmailService.DAILY_MAIL);
     }
 }

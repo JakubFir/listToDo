@@ -62,7 +62,8 @@ class TrelloServiceTest {
                 .mailTo(adminConfig.getAdminMail())
                 .subject("Tasks: New Trello card")
                 .message("New card: " + trelloCardDto.getName() + " has been created on your Trello account")
-                .build());
+                .build(),
+                SimpleEmailService.TRELLO_CARD);
 
         assertEquals(trelloCard.getName(), createdTrelloCardDto.getName());
         assertEquals(trelloCard.getId(), createdTrelloCardDto.getId());

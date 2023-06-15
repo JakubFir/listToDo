@@ -35,7 +35,7 @@ class SimpleEmailServiceTest {
         mailMessage.setText(mail.getMessage());
 
         //When
-        simpleEmailService.send(mail);
+        simpleEmailService.send(mail,SimpleEmailService.NORMAL_MAIL);
 
         //Then
         verify(javaMailSender, times(1)).send(mailMessage);
@@ -57,7 +57,7 @@ class SimpleEmailServiceTest {
         doThrow(new MailSendException("test")).when(javaMailSender).send(mailMessage);
 
         //When
-        simpleEmailService.send(mail);
+        simpleEmailService.send(mail,SimpleEmailService.NORMAL_MAIL);
 
         //Then
         verify(javaMailSender, times(1)).send(mailMessage);

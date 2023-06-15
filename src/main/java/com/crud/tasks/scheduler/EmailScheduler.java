@@ -27,7 +27,8 @@ public class EmailScheduler {
                         .mailTo(adminConfig.getAdminMail())
                         .subject(SUBJECT)
                         .message("Currently in database you got: " + size + " " + pluralOrNot)
-                        .build()
+                        .build(),
+                SimpleEmailService.DAILY_MAIL
         );
     }
 }
